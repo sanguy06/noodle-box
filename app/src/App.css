@@ -53,3 +53,26 @@
 .App-button:hover {
   background-color: #FF3B2F;  /* Darker on hover */
 }
+
+.App-button:active {
+  background-color: #E63946;  /* Even darker on click */
+}
+
+.App-button:focus {
+  outline: none;              /* Remove focus outline */
+  box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.5); /* Custom focus shadow */
+}
+
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-10px, 0); }
+  40% { transform: translate(10px, 0); }
+  60% { transform: translate(-10px, 0); }
+  80% { transform: translate(10px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+.shake {
+  animation: shake 0.5s;
+  animation-iteration-count: 6; /* 0.5s * 6 = 3s */
+}
