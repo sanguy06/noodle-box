@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #f2d397;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +35,21 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.App-button {
+  background-color: #FF6F61;  /* Button color */
+  color: white;               /* Text color */
+  font-size: 20px;            /* Font size */
+  font-weight: bold;          /* Optional: bold text */
+  padding: 15px 30px;         /* Bigger button */
+  border: none;               /* Remove default border */
+  border-radius: 10px;        /* Rounded corners */
+  cursor: pointer;            /* Pointer on hover */
+  transition: background 0.3s; /* Smooth hover effect */
+  margin: 50px
+}
+
+.App-button:hover {
+  background-color: #FF3B2F;  /* Darker on hover */
 }
