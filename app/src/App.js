@@ -1,14 +1,13 @@
 //import logo from './logo.svg';
 import React, { useState, useEffect } from 'react';
 import ClosedBox from "./assets/ClosedBox.png"
-import RamenOpended from "./assets/RamenOpened.png"
+import RamenOpened from "./assets/RamenOpened.png"
 import PhoClosed from "./assets/PhoClosed.png"
 import UdonClosed from "./assets/UdonClosed.png"
 import modalBg from './assets/RamenAlone.png';
 import './App.css';
 
 function App() {
-
   const [isShaking, setIsShaking] = useState(false);
   const [showImages, setShowImages] = useState(false);
   const [isFading, setIsFading] = useState(false);
@@ -16,7 +15,8 @@ function App() {
   //shaking box func
   const handleShake = () => {
     setIsShaking(true);
-    setTimeout(() => { setIsShaking(false); setShowImages(true);} ,3000); // 3 seconds
+    setIsFading(true);
+    setTimeout(() => { setIsShaking(false); setIsFading(true); setShowImages(true);} ,3000); // 3 seconds
   };
 
   //Modal timer
@@ -46,7 +46,7 @@ function App() {
    return (
     <div className="container">
       <div className="side left">
-        <img src={RamenOpended} alt="Left" />
+        <img src={RamenOpened} alt="Left" />
       </div>
       <div className="side right">
         <img src={PhoClosed} alt="Right" />
@@ -101,7 +101,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={ClosedBox} className={`App-closed-box ${isShaking ? "shake" : ""}`} alt="Closed Blind Box" />
+        <img src={ClosedBox} className={`App-closed-box ${isShaking ? "shake" : ""} ${isFading ? "fade-out" : ""}`} alt="Closed Blind Box" />
 
         <button className="App-button" onClick={handleShake}>
           OPEN BOX
