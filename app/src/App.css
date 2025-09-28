@@ -77,7 +77,7 @@
   animation-iteration-count: 6; /* 0.5s * 6 = 3s */
 }
 
-<<<<<<< HEAD
+
 @keyframes fadeOut {
   from {
     opacity: 1;
@@ -101,8 +101,7 @@
 
 .App-closed-box{
   transition: opacity 4s
-=======
-/*PG1: settings*/
+}
 
 .container {
   height: 100vh;  /* 100% of viewport height */
@@ -131,5 +130,5 @@
   top: 550px;
   left: 50%;
   transform: translateX(-50%);  /* center horizontally */
->>>>>>> 1d0832cdb23b3d099d98c0941a1574b31b27a04e
+
 }
