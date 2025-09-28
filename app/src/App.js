@@ -2,21 +2,22 @@
 import React, { useState } from 'react';
 import ClosedBox from "./assets/ClosedBox.png"
 import RamenOpended from "./assets/RamenOpened.png"
+
 import PhoClosed from "./assets/PhoClosed.png"
 import UdonClosed from "./assets/UdonClosed.png"
+
 import './App.css';
 
 function App() {
-
   //shaking box function
   const [isShaking, setIsShaking] = useState(false);
+  const [isFading, setIsFading] = useState(false);
 
   const handleShake = () => {
     setIsShaking(true);
-    setTimeout(() => { setIsShaking(false); setShowImages(true);} ,3000); // 3 seconds
-  };
-
-  
+    setIsFading(true);
+    setTimeout(() => { setIsShaking(false); setIsFading(false); setShowImages(true);} ,3000); // 3 seconds
+  }
 
   const [showImages, setShowImages] = useState(false);
 
@@ -37,6 +38,20 @@ function App() {
       <button className="App-button" onClick={() => setShowImages(false)}>
         Go Back
       </button>
+
+      <button className="Ramen-timer" onClick={() => alert('Clicked!')}>
+        Start Ramen Timer
+      </button>
+
+      <button className="Pho-timer" onClick={() => alert('This Button is locked!')}>
+        Pho Button Locked
+      </button>
+
+      <button className="Udon-timer" onClick={() => alert('This Button is locked!')}>
+        Udon Button Locked 
+      </button>
+
+
     </div>
   );
   }
@@ -45,7 +60,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={ClosedBox} className={`Closed-Box ${isShaking ? "shake" : ""}`} alt="Closed Blind Box" />
+        <img src={ClosedBox} className={`App-closed-box ${isShaking ? "shake" : ""} ${isFading ? "fade-out" : ""}`} alt="Closed Blind Box" />
 
         <button className="App-button" onClick={handleShake}>
           OPEN BOX
