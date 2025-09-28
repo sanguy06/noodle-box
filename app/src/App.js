@@ -67,12 +67,10 @@ function App() {
         <img src={ClosedBox} className={`App-closed-box ${isShaking ? "shake" : ""} ${isFading ? "fade-out" : ""}`} alt="Closed Blind Box" 
           style={{display: showOpenedBox ? "none": "block"}}
          />
-     
         
-        <img src={OpenedBox} className={`App-opened-box ${showOpenedBox ? "fade-in": ""}`} alt="Opened Blind Box"
-        
+        <img src={OpenedBox} className={`App-opened-box ${showOpenedBox ? "fade-in": ""}`} alt="Opened Blind Box"   
         />
-         
+        
         <button className="App-button" onClick={handleShake}>
           OPEN BOX
         </button>

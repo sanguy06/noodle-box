@@ -141,6 +141,11 @@
   height: 300px
 }
 
+.box-container img {
+  width: 100%;           /* keep images same size */
+  height: auto;
+}
+
 .App-opened-box{
   transition: opacity 4s;
   position: absolute; 
