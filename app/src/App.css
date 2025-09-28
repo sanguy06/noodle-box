@@ -119,38 +119,61 @@
 }
 
 .container {
-  height: 100vh;  /* 100% of viewport height */
-  width: 100vw;   /* 100% of viewport width */
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  justify-items: center;
+  align-items: start;
+  height: 100vh;
+  width: 100vw;
   background-color: #f2d397;
-}
-/* Example manual positions */
-.left {
-  position: absolute;
-  top: 150px;    /* 50px from top */
-  left: 350px;   /* 50px from left */
+  position: relative;
+  gap: 0;
+  padding: 40px 0;
 }
 
-.right {
-  position: absolute;
-  top: 180px;
-  right: 350px;  /* 50px from right */
+.top-row {
+  grid-column: 1 / 3;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 0;
 }
 
-.middle {
-  position: absolute;
-  top: 550px;
-  left: 50%;
-  transform: translateX(-50%);  /* center horizontally */
+.bottom-row {
+  grid-column: 1 / 3;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0;
+}
+
+.image-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer-btn {
+  margin-top: 30px;
+  margin-bottom: 0;
+  position: static;
+}
+
+.left, .right, .middle {
+  position: static;
+  top: unset;
+  left: unset;
+  right: unset;
+  transform: none;
+  /* Remove absolute positioning for grid layout */
 }
 
 /*PG1: button settings*/
 
 .Ramen-timer{
-  position: absolute;
+  position: static;
+  margin: 30px 0 0 0;
   top: 400px;         /* distance from top of container/page */
   left: 445px;        /* distance from left */
 
@@ -180,7 +203,8 @@
 }
 
 .Pho-timer{
-  position: absolute;
+  position: static;
+  margin: 30px 0 0 0;
   top: 400px;         /* distance from top of container/page */
   left: 1000px;        /* distance from left */
 
@@ -211,7 +235,8 @@
 
 
 .Udon-timer{
-  position: absolute;
+  position: static;
+  margin: 30px 0 0 0;
   top: 800px;         /* distance from top of container/page */
   left: 680px;        /* distance from left */
 
@@ -287,4 +312,74 @@
   color: #000000;       /* optional: change color */
   margin: 20px 0;       /* spacing */
   font-family: 'Arial', sans-serif; /* optional: font */
+}
+
+@media (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: 100vw;
+    padding: 10px 0;
+    gap: 0;
+  }
+
+  .top-row,
+  .bottom-row {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .image-column {
+    width: 100%;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .App-opened-box {
+    width: 90vw;
+    max-width: 350px;
+    position: static;
+  }
+
+  .App-button,
+  .Ramen-timer,
+  .Pho-timer,
+  .Udon-timer {
+    width: 90vw;
+    max-width: 350px;
+    font-size: 18px;
+    padding: 12px 0;
+    margin: 20px 0;
+  }
+
+  .timer-btn {
+    margin-top: 20px;
+    width: 90vw;
+    max-width: 350px;
+  }
+
+  .modal-overlay {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw;
+    max-width: 350px;
+    height: auto;
+    min-height: 200px;
+  }
+
+  .modal-content {
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .timer-text {
+    font-size: 32px;
+    margin: 10px 0;
+  }
 }
