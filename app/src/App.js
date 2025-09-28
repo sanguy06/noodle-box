@@ -17,8 +17,7 @@ function App() {
     setIsShaking(true);
     setIsFading(true);
     setTimeout(() => { setIsShaking(false); setIsFading(false); setShowImages(true);} ,3000); // 3 seconds
-
-  };
+  }
 
   const [showImages, setShowImages] = useState(false);
 
@@ -39,6 +38,20 @@ function App() {
       <button className="App-button" onClick={() => setShowImages(false)}>
         Go Back
       </button>
+
+      <button className="Ramen-timer" onClick={() => alert('Clicked!')}>
+        Start Ramen Timer
+      </button>
+
+      <button className="Pho-timer" onClick={() => alert('This Button is locked!')}>
+        Pho Button Locked
+      </button>
+
+      <button className="Udon-timer" onClick={() => alert('This Button is locked!')}>
+        Udon Button Locked 
+      </button>
+
+
     </div>
   );
   }
