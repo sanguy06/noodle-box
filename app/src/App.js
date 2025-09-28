@@ -1,20 +1,21 @@
 //import logo from './logo.svg';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ClosedBox from "./assets/ClosedBox.png"
 import RamenOpened from "./assets/RamenOpened.png"
 import OpenedBox from "./assets/OpenedBox.png"
 import PhoClosed from "./assets/PhoClosed.png"
 import UdonClosed from "./assets/UdonClosed.png"
-
+import modalBg from './assets/RamenAlone.png';
 import './App.css';
 
 function App() {
-  //shaking box function
   const [isShaking, setIsShaking] = useState(false);
+  const [showImages, setShowImages] = useState(false);
   const [isFading, setIsFading] = useState(false);
   const [showOpenedBox, setShowOpenedBox] = useState(false);
   const [showImages, setShowImages] = useState(false);
 
+  //shaking box func
   const handleShake = () => {
     setIsShaking(true);
     setIsFading(true);
@@ -30,6 +31,26 @@ function App() {
     }, 3000); // 3 seconds
   }
 
+  //Modal timer
+  const [showModal, setShowModal] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(300); // 5 min timer in seconds
+
+  useEffect(() => {
+    if (!showModal) return;
+    if (timeLeft <= 0) return;
+
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => prev - 1);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [showModal, timeLeft]);
+
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+  };
   //New Page: P1
   if (showImages) {
     // This is the "new page" with 3 
@@ -48,7 +69,7 @@ function App() {
         Go Back
       </button>
 
-      <button className="Ramen-timer" onClick={() => alert('Clicked!')}>
+      <button className="Ramen-timer" onClick={() => { setTimeLeft(300); setShowModal(true); }}>
         Start Ramen Timer
       </button>
 
@@ -60,6 +81,28 @@ function App() {
         Udon Button Locked 
       </button>
 
+      {showModal && (
+        <div className="modal-overlay">
+          <div
+            className="modal-content"
+            style={{
+              backgroundImage: `url(${modalBg})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: '20px',
+              boxShadow: '0 8px 20px rgba(0,0,0,0.4)',
+              color: '#333',
+              fontFamily: 'Arial, sans-serif',
+              textAlign: 'center',
+            }}
+          >
+
+            <h2>Ramen Timer</h2>
+            <p className="timer-text">{formatTime(timeLeft)}</p>
+            <button className="App-button" onClick={() => setShowModal(false)}> Close</button>
+          </div>
+        </div>
+      )}
 
     </div>
   );

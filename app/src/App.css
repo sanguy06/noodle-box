@@ -63,6 +63,7 @@
   box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.5); /* Custom focus shadow */
 }
 
+/*Shake animation*/
 @keyframes shake {
   0% { transform: translate(0, 0); }
   20% { transform: translate(-10px, 0); }
@@ -183,7 +184,7 @@
   top: 400px;         /* distance from top of container/page */
   left: 1000px;        /* distance from left */
 
-  background-color: #FF6F61;  /* Button color */
+  background-color: #9e3333;  /* Button color */
   color: white;               /* Text color */
   font-size: 20px;            /* Font size */
   font-weight: bold;          /* Optional: bold text */
@@ -214,7 +215,7 @@
   top: 800px;         /* distance from top of container/page */
   left: 680px;        /* distance from left */
 
-  background-color: #FF6F61;  /* Button color */
+  background-color: #9e3333;  /* Button color */
   color: white;               /* Text color */
   font-size: 20px;            /* Font size */
   font-weight: bold;          /* Optional: bold text */
@@ -237,4 +238,53 @@
 .Udon-timer:focus {
   outline: none;              /* Remove focus outline */
   box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.5); /* Custom focus shadow */
+}
+
+/*Modal*/
+.modal-overlay {
+  position: fixed;    /* positions relative to viewport */
+  top: 550px;         /* adjust vertical position */
+  left: 50px;        /* adjust horizontal position */
+  width: 400px;       /* modal width */
+  height: 300px;      /* modal height */
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+.modal-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./assets/RamenAlone.png'); /* relative path if using CSS */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5; /* background transparency */
+  z-index: 0;
+}
+
+.modal-content > * {
+  position: relative; /* make sure text/buttons stay above the background */
+  z-index: 1;
+}
+
+/*Timer*/
+.timer-text {
+  font-size: 48px;      /* makes the timer bigger */
+  font-weight: bold;     /* optional: bold numbers */
+  color: #000000;       /* optional: change color */
+  margin: 20px 0;       /* spacing */
+  font-family: 'Arial', sans-serif; /* optional: font */
 }
