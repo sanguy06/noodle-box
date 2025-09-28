@@ -9,18 +9,16 @@ import UdonClosed from "./assets/UdonClosed.png"
 import './App.css';
 
 function App() {
-
   //shaking box function
   const [isShaking, setIsShaking] = useState(false);
   const [isFading, setIsFading] = useState(false);
 
   const handleShake = () => {
     setIsShaking(true);
+    setIsFading(true);
     setTimeout(() => { setIsShaking(false); setIsFading(false); setShowImages(true);} ,3000); // 3 seconds
 
   };
-
-  
 
   const [showImages, setShowImages] = useState(false);
 
