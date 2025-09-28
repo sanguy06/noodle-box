@@ -2,19 +2,22 @@
 import React, { useState } from 'react';
 import ClosedBox from "./assets/ClosedBox.png"
 import RamenOpended from "./assets/RamenOpened.png"
-//import PhoClosed from "./assets/PhoClosed.png"
-//import UdonClosed from "./assets/UdonClosed.png"
+
+import PhoClosed from "./assets/PhoClosed.png"
+import UdonClosed from "./assets/UdonClosed.png"
+
 import './App.css';
 
 function App() {
 
   //shaking box function
   const [isShaking, setIsShaking] = useState(false);
-  const [isFading, setIsFading] = useState(false);
+
 
   const handleShake = () => {
     setIsShaking(true);
-    setTimeout(() => { setIsShaking(false); setIsFading(false); setShowImages(true);} ,3000); // 3 seconds
+    setTimeout(() => { setIsShaking(false); setShowImages(true);} ,3000); // 3 seconds
+
   };
 
   
