@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import ClosedBox from "./assets/ClosedBox.png"
 import RamenOpened from "./assets/RamenOpened.png"
+import OpenedBox from "./assets/OpenedBox.png"
 import PhoClosed from "./assets/PhoClosed.png"
 import UdonClosed from "./assets/UdonClosed.png"
 import modalBg from './assets/RamenAlone.png';
@@ -11,13 +12,24 @@ function App() {
   const [isShaking, setIsShaking] = useState(false);
   const [showImages, setShowImages] = useState(false);
   const [isFading, setIsFading] = useState(false);
+  const [showOpenedBox, setShowOpenedBox] = useState(false);
+  const [showImages, setShowImages] = useState(false);
 
   //shaking box func
   const handleShake = () => {
     setIsShaking(true);
     setIsFading(true);
-    setTimeout(() => { setIsShaking(false); setIsFading(true); setShowImages(true);} ,3000); // 3 seconds
-  };
+    setTimeout(() => {
+      setIsShaking(false);
+      setIsFading(false);
+      setShowOpenedBox(true);
+      // Show OpenedBox for 5s, then show images page
+      setTimeout(() => {
+        setShowOpenedBox(false);
+        setShowImages(true);
+      }, 5000);
+    }, 3000); // 3 seconds
+  }
 
   //Modal timer
   const [showModal, setShowModal] = useState(false);
@@ -39,7 +51,6 @@ function App() {
     const secs = seconds % 60;
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   };
-
   //New Page: P1
   if (showImages) {
     // This is the "new page" with 3 
@@ -101,19 +112,31 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={ClosedBox} className={`App-closed-box ${isShaking ? "shake" : ""} ${isFading ? "fade-out" : ""}`} alt="Closed Blind Box" />
-
-        <button className="App-button" onClick={handleShake}>
-          OPEN BOX
-        </button>
-
+        {!showOpenedBox && (
+          <img
+            src={ClosedBox}
+            className={`App-closed-box ${isShaking ? "shake" : ""} ${isFading ? "fade-out" : ""}`}
+            alt="Closed Blind Box"
+          />
+        )}
+        {showOpenedBox && (
+          <img
+            src={OpenedBox}
+            className="App-opened-box fade-in"
+            alt="Opened Blind Box"
+          />
+        )}
+        {!showOpenedBox && (
+          <button className="App-button" onClick={handleShake}>
+            OPEN BOX
+          </button>
+        )}
         <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-
         </a>
       </header>
     </div>
