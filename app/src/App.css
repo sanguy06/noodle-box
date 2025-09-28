@@ -107,3 +107,96 @@
   left: 50%;
   transform: translateX(-50%);  /* center horizontally */
 }
+
+/*PG1: button settings*/
+
+.Ramen-timer{
+  position: absolute;
+  top: 400px;         /* distance from top of container/page */
+  left: 445px;        /* distance from left */
+
+  background-color: #FF6F61;  /* Button color */
+  color: white;               /* Text color */
+  font-size: 20px;            /* Font size */
+  font-weight: bold;          /* Optional: bold text */
+  padding: 15px 30px;         /* Bigger button */
+  border: none;               /* Remove default border */
+  border-radius: 10px;        /* Rounded corners */
+  cursor: pointer;            /* Pointer on hover */
+  transition: background 0.3s; /* Smooth hover effect */
+  margin: 50px
+}
+
+.Ramen-timer:hover{
+  background-color: #FF3B2F;  /* Darker on hover */
+}
+
+.Ramen-timer:active{
+  background-color: #E63946;  /* Even darker on click */
+}
+
+.Ramen-timer:focus {
+  outline: none;              /* Remove focus outline */
+  box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.5); /* Custom focus shadow */
+}
+
+.Pho-timer{
+  position: absolute;
+  top: 400px;         /* distance from top of container/page */
+  left: 1000px;        /* distance from left */
+
+  background-color: #FF6F61;  /* Button color */
+  color: white;               /* Text color */
+  font-size: 20px;            /* Font size */
+  font-weight: bold;          /* Optional: bold text */
+  padding: 15px 30px;         /* Bigger button */
+  border: none;               /* Remove default border */
+  border-radius: 10px;        /* Rounded corners */
+  cursor: pointer;            /* Pointer on hover */
+  transition: background 0.3s; /* Smooth hover effect */
+  margin: 50px
+}
+
+.Pho-timer:hover{
+  background-color: #FF3B2F;  /* Darker on hover */
+}
+
+.Pho-timer:active{
+  background-color: #E63946;  /* Even darker on click */
+}
+
+.Pho-timer:focus {
+  outline: none;              /* Remove focus outline */
+  box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.5); /* Custom focus shadow */
+}
+
+
+.Udon-timer{
+  position: absolute;
+  top: 800px;         /* distance from top of container/page */
+  left: 680px;        /* distance from left */
+
+  background-color: #FF6F61;  /* Button color */
+  color: white;               /* Text color */
+  font-size: 20px;            /* Font size */
+  font-weight: bold;          /* Optional: bold text */
+  padding: 15px 30px;         /* Bigger button */
+  border: none;               /* Remove default border */
+  border-radius: 10px;        /* Rounded corners */
+  cursor: pointer;            /* Pointer on hover */
+  transition: background 0.3s; /* Smooth hover effect */
+  margin: 50px
+}
+
+.Udon-timer:hover{
+  background-color: #FF3B2F;  /* Darker on hover */
+}
+
+.Udon-timer:active{
+  background-color: #E63946;  /* Even darker on click */
+}
+
+.Udon-timer:focus {
+  outline: none;              /* Remove focus outline */
+  box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.5); /* Custom focus shadow */
+}
