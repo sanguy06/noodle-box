@@ -76,3 +76,34 @@
   animation: shake 0.5s;
   animation-iteration-count: 6; /* 0.5s * 6 = 3s */
 }
+
+/*PG1: settings*/
+
+.container {
+  height: 100vh;  /* 100% of viewport height */
+  width: 100vw;   /* 100% of viewport width */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  background-color: #f2d397;
+}
+/* Example manual positions */
+.left {
+  position: absolute;
+  top: 150px;    /* 50px from top */
+  left: 350px;   /* 50px from left */
+}
+
+.right {
+  position: absolute;
+  top: 180px;
+  right: 350px;  /* 50px from right */
+}
+
+.middle {
+  position: absolute;
+  top: 550px;
+  left: 50%;
+  transform: translateX(-50%);  /* center horizontally */
+}
