@@ -77,7 +77,29 @@
   animation-iteration-count: 6; /* 0.5s * 6 = 3s */
 }
 
-/*PG1: settings*/
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opcaity: 0;
+  }
+}
+
+.fade-out {
+  opacity: 0;
+ 
+}
+
+.animated-image{
+  animation: fadeOut 3s forwards, shake 3s;
+  animation-iteration-count: 10
+}
+
+.App-closed-box{
+  transition: opacity 4s
+}
 
 .container {
   height: 100vh;  /* 100% of viewport height */
